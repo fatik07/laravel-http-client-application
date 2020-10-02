@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\UserController::class, 'index']);
+Route::delete('/delete/{id_user}', [App\Http\Controllers\UserController::class, 'destroy']);
 
 Auth::routes();
 

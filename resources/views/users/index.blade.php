@@ -35,10 +35,17 @@
                                     <td>{{$user->last_name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary"
+                                        <td class="d-flex">
+                                            <a class="btn btn-sm btn-primary"
                                             href="{{ route('users.show', $user->id) }}">Show</a>
-                                        <a class="btn btn-sm btn-secondary"
+                                            <a class="btn btn-sm btn-secondary"
                                             href="{{ route('users.edit', $user->id) }}">Edit</a>
+                                            <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
+                                        </td>
                                     </td>
                                 </tr>
                                 @endforeach
